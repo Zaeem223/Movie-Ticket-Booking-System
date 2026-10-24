@@ -1,0 +1,122 @@
+﻿<Page Background="#F5F5F5" x:Class="TicketsBookingApp.ConsumerPage1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TicketsBookingApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ConsumerPage">
+
+    <Grid>
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="503*"/>
+            <ColumnDefinition Width="297*"/>
+        </Grid.ColumnDefinitions>-->
+
+
+
+
+        <DataGrid x:Name="dgShows" IsReadOnly="True" Visibility="Visible"  SelectionMode="Single"
+          SelectionUnit="FullRow"
+          Width="800"
+          Height="217"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Top"
+          AutoGenerateColumns="False"
+          SelectionChanged="dgShows_SelectionChanged"
+          Margin="0,101,0,0" Grid.ColumnSpan="2">
+
+
+
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Show Name"
+                            Width="Auto"
+                            Binding="{Binding showName}" />
+
+                <DataGridTextColumn Header="Cinema Name"
+                            Width="Auto"
+                            Binding="{Binding CinemaName}" />
+
+                <DataGridTextColumn Header="Show Date Time"
+                            Width="Auto"
+                            Binding="{Binding BDateTime}" />
+                <DataGridTextColumn Header="Ticket Price"
+                            Width="Auto"
+                            Binding="{Binding ticketPrice}" />
+                <DataGridTextColumn Header="Genre"
+                            Width="Auto"
+                            Binding="{Binding Genre}" />
+
+                <DataGridTextColumn Header="Duration"
+                            Width="Auto"
+                            Binding="{Binding Duration}" />
+
+                <DataGridTextColumn Header="Language"
+                            Width="Auto"
+                            Binding="{Binding Language}" />
+
+
+
+                <DataGridTextColumn Header="Description"
+                            Width="Auto"
+                            Binding="{Binding Description}" />
+
+
+            </DataGrid.Columns>
+
+
+
+
+        </DataGrid>
+
+        <!--<Label Content="Movie Name :" x:Name="MovieNameLabel" HorizontalAlignment="Left" Margin="362,15,0,0" VerticalAlignment="Top" Width="428" Height="40" Visibility="Visible" FontWeight="Bold" FontSize="16"/>
+            <Label Content="Description :" x:Name="DescriptionLbael" HorizontalAlignment="Left" Margin="363,241,0,0" VerticalAlignment="Top" Width="427" Height="76" Visibility="Visible" FontWeight="Bold" FontSize="16"/>
+            <Label Content="Ticket Price :" x:Name="TicketPriceLabel" HorizontalAlignment="Left" Margin="363,196,0,0" VerticalAlignment="Top" Width="427" Height="40" Visibility="Visible" FontWeight="Bold" FontSize="16"/>
+            <Label Content="Language :" x:Name="LanguageLabel" HorizontalAlignment="Left" Margin="363,151,0,0" VerticalAlignment="Top" Width="412" Height="40" Visibility="Visible" FontWeight="Bold" FontSize="16"/>
+            <Label Content="Duration :" x:Name="DurationLabel" HorizontalAlignment="Left" Margin="363,106,0,0" VerticalAlignment="Top" Width="427" Height="40" Visibility="Visible" FontWeight="Bold" FontSize="16"/>
+            <Label Content="Genre :" x:Name="GenreLabel" HorizontalAlignment="Left" Margin="363,60,0,0" VerticalAlignment="Top" Width="355" Height="41" Visibility="Visible" FontWeight="Bold" FontSize="16"/>
+            <Label Content="Date and Time :" x:Name="DateTimeLabel" HorizontalAlignment="Left" Margin="362,308,0,0" VerticalAlignment="Top" Width="316" Height="34" Visibility="Visible" FontWeight="Bold" FontSize="16"/>-->
+
+        <Button Content="My Bookings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" RenderTransformOrigin="2.101,1.771" Height="27" Click="MyBooking_Click" FontWeight="Bold" Margin="730,27,0,0" FontSize="11"/>
+        <!--<Button Content="View Details" Visibility="Hidden" HorizontalAlignment="Left" Margin="0,355,0,0" VerticalAlignment="Top" Width="93" Height="27" RenderTransformOrigin="1.508,0.674" FontSize="14" FontWeight="Bold"  Click="ViewDetailsButton_Click_1"/>-->
+
+        <Label Content="No of Tickets :" x:Name="MovieNameLabel_Copy6" HorizontalAlignment="Left" Margin="4,357,0,0" VerticalAlignment="Top" Width="92" Height="30" Visibility="Hidden" FontWeight="Bold" RenderTransformOrigin="0.504,1.173" Grid.Column="1"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="83,79,0,0" VerticalAlignment="Top" Width="75" Click="SearchButton_Click" FontWeight="Bold"/>
+        <Label Content="Search by: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="121,10,0,0" FontSize="16" RenderTransformOrigin="0.525,-0.137" FontWeight="Bold" Visibility="Hidden"/>
+
+
+        <Button Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="22" Click="IncrementButton_Click" Margin="645,370,0,0" FontSize="16" Height="22"/>
+        <TextBox x:Name="NoOfTicketsTextBox"  PreviewKeyDown="TicketsTextBox_PreviewKeyDown" DataObject.Pasting="TicketsTextBox_Pasting" PreviewTextInput="TicketsTextBox_PreviewTextInput" IsEnabled="False" Text="1" HorizontalAlignment="Left" Height="27" Margin="598,368,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="33" TextChanged="BookNowTextBox" FontSize="18"/>
+        <Label Content="Price: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="490,328,0,0" FontSize="18"/>
+        <Label x:Name="PriceLabel" Content="" HorizontalAlignment="Left" Margin="566,334,0,0" VerticalAlignment="Top" Width="64"/>
+        <Button Content="Book Now" HorizontalAlignment="Left" Margin="490,367,0,0" VerticalAlignment="Top" Width="85" Height="27" RenderTransformOrigin="0.5,0.5" FontSize="14" FontWeight="Bold" Click="BookNowButton_Click_1"/>
+        <TextBox x:Name="MoviesTextBox" MaxLength="50" HorizontalAlignment="Left" Height="22" Margin="197,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="85" />
+        <ComboBox x:Name="CinemaCombo" HorizontalAlignment="Left" Margin="307,76,0,0" VerticalAlignment="Top" Width="85">
+            <ComboBoxItem Content="Cineplex Central"/>
+            <ComboBoxItem Content="Grand Cinema"/>
+            <ComboBoxItem Content="Galaxy Cinemas" />
+            <ComboBoxItem Content="Royal Screens" />
+            <ComboBoxItem Content="Star Cinema" />
+        </ComboBox>
+        <ComboBox x:Name="GenreCombo" HorizontalAlignment="Left" Margin="423,76,0,0" VerticalAlignment="Top" Width="85">
+            <ComboBoxItem Content="Action"/>
+            <ComboBoxItem Content="Adventure"/>
+            <ComboBoxItem Content="Comedy" />
+            <ComboBoxItem Content="Horror" />
+            <ComboBoxItem Content="Romance" />
+        </ComboBox>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="657,72,0,0" VerticalAlignment="Top" Width="75" Click="ClearSearchButton_Click"/>
+        <Button Content="Sign out" HorizontalAlignment="Left" Margin="730,-1,0,0" VerticalAlignment="Top" Width="70" Height="27" Click="Button_Click" FontWeight="Bold"/>
+        <Button  HorizontalAlignment="Left" Margin="374,338,0,0" VerticalAlignment="Top" Width="26" Click="IncButton_Click_1" Content="&gt;" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="PagesCount" Content="1 of 1" HorizontalAlignment="Left" Margin="329,337,0,0" VerticalAlignment="Top"/>
+        <Button  HorizontalAlignment="Left" Margin="293,338,0,0" VerticalAlignment="Top" Width="28" Click="decButton_Click_1" Content="&lt;" FontWeight="Bold" FontSize="16"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="307,1,0,0" TextWrapping="Wrap" Text="Shows" VerticalAlignment="Top" Height="43" Width="121" FontSize="36" FontWeight="Bold"/>
+
+        <Label x:Name="UserNameLabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" FontWeight="Bold" FontSize="16" Height="37" Margin="624,10,0,0"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="206,55,0,0" TextWrapping="Wrap" Text="By Movie" VerticalAlignment="Top" RenderTransformOrigin="0.246,0.538" Height="19" FontWeight="Bold"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="307,42,0,0" TextWrapping="Wrap" Text="By Cinema" VerticalAlignment="Top" RenderTransformOrigin="0.246,0.538" Height="19" FontWeight="Bold"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="386,49,0,0" TextWrapping="Wrap" Text="By Genre" VerticalAlignment="Top" RenderTransformOrigin="0.246,0.538" Height="19" FontWeight="Bold"/>
+    </Grid>
+</Page>
